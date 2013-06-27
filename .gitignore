@@ -1,4 +1,5 @@
 *.txt
 *.pyc
 .DS_Store
+all_deals
 keys.py
