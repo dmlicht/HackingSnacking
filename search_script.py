@@ -1,8 +1,6 @@
 import os
 import json
-
 #minimum value for returned result
-FILTER_CUTOFF = 3
 
 def get_rating(name):
     """returns name, yelp rating, and yelp page url of given business
@@ -21,7 +19,10 @@ def get_rating(name):
     json_obj = json.loads(json_data)
     businesses = json_obj.get("businesses", 0)
     if businesses:
-        first = businesses[0]
-        return first["rating"], first["name"], first["url"], first["review_count"], first["location"]
+        return businesses[0]
+
+        # first = businesses[0]
+        # return first["rating"], first["name"], first["url"], first["review_count"], first["location"]
     else:
-        return 0, name, "", 0, ""
+        return None
+        # return 0, name, "", 0, ""
