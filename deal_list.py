@@ -2,14 +2,12 @@ import search_script
 import unicodedata
 import pygroupon
 import cPickle
-# from pprint import pprint
 from keys import keys
 
 GROUPON_BASE_DEAL_URL = 'http://www.groupon.com/deals/'
 FILTER_CUTOFF = 4.0
 
 class Deal(object):
-
     @classmethod
     def from_json(cls, yelp_json, deal_json, deal_site="Groupon"):
         """takes yelp and deal site json data and creates deal object from it

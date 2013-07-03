@@ -1,4 +1,11 @@
 {% extends 'layout.html' %}
 {% block content %}
-
+  {% for deal in deals %}
+    <article class="deal">
+      <h1> {{deal.name}} </h1>
+      <p> {{deal.yelp_score}} out of {{deal.num_reviews}} reviews</p>
+      <p> <a href="{{deal.deal_url}}" target="_blank">On Groupon</a> </p>
+      <p> <a href="{{deal.yelp_url}}" target="_blank">On Yelp</a></p>
+    </article>
+  {% endfor %}
 {% endblock %}
