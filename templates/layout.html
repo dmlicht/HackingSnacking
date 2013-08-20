@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
+    <title>Hacking Snacking</title>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Abril+Fatface' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,900,200italic' rel='stylesheet' type='text/css'>
-    <meta charset="utf-8">
-    <title>Hacking Snacking</title>
-    <link rel="stylesheet" href="../static/meyerweb-reset.css">
-    <link rel="stylesheet" href="../static/cf.css">
-    <link rel="stylesheet" href="../static/style.css">
-    <link rel="shortcut icon" href="../static/utensils.ico" />
-    <link rel="stylesheet/less" type="text/css" href="../static/style.less" />
-    <script src="../static/less.js" type="text/javascript"></script>
-		<script src="../static/searchbox.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/meyerweb-reset.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/cf.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/utensils.ico')}}" />
+    <link rel="stylesheet/less" type="text/css" href="{{url_for('static', filename='less/style.less')}}" />
+    <script src="{{url_for('static', filename='js/less.js')}}" type="text/javascript"></script>
+    <script src="{{url_for('static', filename='js/searchbox.js')}}" type="text/javascript"></script>
   </head>
   <body>
     <div id="header-background">
       <header>
         <hgroup class="cf">
-          <p><img src="../static/utensils.svg" /></p>
+        <p><img src="{{url_for('static', filename='img/utensils.svg')}}" /></p>
           <h1>Hacking Snacking</h1>
         </hgroup>
         <nav id="search">
           <table>
             <tr>
-              <td><img src="../static/mag.svg" /></td>
+                <td><img src="{{url_for('static', filename='img/mag.svg')}}" /></td>
 							<td><input id="search-field" type="search" oninput="filterList()"/></td>
             </tr>
           </table>
