@@ -1,0 +1,18 @@
+{% block deal_block %}
+<article class="deal">
+  <div class="deal-content">
+  <a href="{{deal.deal_url}}" target="_blank">
+    <h1> {{deal.name}} </h1>
+    {#
+    {% if deal.image_url %}
+        <img src="{{deal.image_url}}" />
+    {% endif %}
+    #}
+  </a>
+  <p> 
+    <a href="{{deal.yelp_url}}" target="_blank">
+    {{deal.yelp_score}} out of {{deal.num_reviews}} reviews on Yelp</a>
+  </p>
+  </div>
+</article>
+{% endblock %}
