@@ -1,5 +1,7 @@
 *.txt
 *.pyc
+*.swp
+.idea
 .DS_Store
 all_deals
 keys.py
