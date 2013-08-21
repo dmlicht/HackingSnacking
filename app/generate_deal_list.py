@@ -4,7 +4,11 @@ import pygroupon
 import cPickle
 import os
 from deal import Deal
-from keys import KEYS
+try:
+    from keys import KEYS
+    os.environ["GROUPON_CLIENT_ID"] = KEYS["GROUPON_CLIENT_ID"]
+except:
+    pass
 
 CURRENT_DIR = '/Users/David/Learning/HackerSchool/hacking-snacking/'
 PICKLE_FILENAME = 'all_deals'
@@ -15,7 +19,7 @@ def convert_to_ascii(unicode_string):
     return unicodedata.normalize("NFKD", unicode_string).encode("ascii", "ignore")
 
 def main():
-    groupon = pygroupon.Groupon(KEYS["GROUPON_CLIENT_ID"])
+    groupon = pygroupon.Groupon(os.environ["GROUPON_CLIENT_ID"])
     groupon_json = groupon.fetch()
     well_reviewed_deals = []
     for deal_json in groupon_json['deals']:
