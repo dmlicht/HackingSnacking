@@ -1,0 +1,10 @@
+#!/Users/David/Learning/HackerSchool/hacking-snacking/venv/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'tdaemon==0.1.1','console_scripts','tdaemon'
+__requires__ = 'tdaemon==0.1.1'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('tdaemon==0.1.1', 'console_scripts', 'tdaemon')()
+    )
