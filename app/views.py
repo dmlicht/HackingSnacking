@@ -1,16 +1,12 @@
 from flask import Flask, render_template, jsonify
-from deal_list import Deal
+from app import app
+from app.generate_deal_list import Deal
 import cPickle
 import json
 #from flask import session, config, g
 
-DEBUG = True
-
-app = Flask(__name__)
-app.config.from_object(__name__)
-
 with open('all_deals') as f:
-    deals= cPickle.load(f)
+    deals = cPickle.load(f)
 
 deal_jsons = {deal.name: json.dumps(deal.__dict__) for deal in deals}
 
@@ -31,4 +27,4 @@ def _deal_data():
     return jsonify(deal_jsons) 
 
 if __name__ == '__main__':
-    app.run(port=5002)
+    app.run(port = 5002)
