@@ -24,9 +24,37 @@ describe('Trie', function(){
         
         it('should be able to add hello', function() {
             var word = 'hello';
-            trie.add(word);
-            var node = trie.root
-            assert(node);
+            var val = 'myval';
+            trie.add(word, val);
+            var result = getVal(word);
+            assert.equal(result, val);
+        });
+
+        /**
+         * Move to Trie
+         */
+        var getVal = function (key){
+            var node = trie.root;
+            for (var i = 0; i < key.length; i++){
+                if (node.children.hasOwnProperty(key[i])){
+                    node = node.children[key[i]];
+                } else {
+                    break;
+                }
+            }
+            return node.storage;
+        }
+
+        it('should be able to add several words', function(){
+            var words = ['hello', 'how', 'are', 'you'];
+            var vals = [1, 2, 3, 4];
+            for (var i = 0; i < words.length; i++){
+                trie.add(words[i], vals[i]);
+            }
+            for (var i = 0; i < words.length; i++){
+                var result = getVal(words[i]);
+                assert.equal(result, vals[i]);
+            }
         });
     });
 
@@ -34,16 +62,15 @@ describe('Trie', function(){
         it('should have a startsWith', function() {
             assert(trie.startsWith);
         });
+
         it('should give correct value when one word is added', function() {
-            for (var i = 0; i < 50; i++){
-                trie.add('hello', i);
-                assert.equal(trie.startsWith('he')[0], i);
-            }
+            trie.add('hello', 10);
+            assert.equal(trie.startsWith('he')[0], 10);
         });
 
         it('should return the correct value for all substrings of a key', function(){
-            var val = 10;
             var str = "hello";
+            var val = 10;
             trie.add(str, val);
             for (var i = 1; i < str.length; i++){
                 assert.equal(trie.startsWith(str.substring(0, i))[0], val);
@@ -62,7 +89,8 @@ describe('Trie', function(){
             for (var key in kv){
                 trie.add(key, kv[key]);
             }
-            results = trie.starsWith('ab');
+            results = trie.startsWith('ab');
+            assert(results.indexOf(1) > -1);
             for (var i = 0; i < goodVals.length; i++){
                 assert(results.indexOf(goodVals[i]) > -1);
             }

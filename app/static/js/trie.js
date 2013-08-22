@@ -2,6 +2,7 @@
     var Trie = function(){
         this.root = new Node(null);
     };
+
     var Node = function(ch){
         this.children = {};
         this.ch = ch;
@@ -20,8 +21,8 @@
                 currentNode.children[key[i]] = newNode;
                 currentNode = newNode;
             }
-        currentNode.storage = val;
         }
+        currentNode.storage = val;
     }
 
     /**
@@ -59,7 +60,7 @@
             values.push(node['storage']);
         }
         for (var ch in node.children){
-            values.concat(this.findStoredBelow(node.children[ch]));
+            values = values.concat(this.findStoredBelow(node.children[ch]));
         }
         return values;
     }
