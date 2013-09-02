@@ -20,7 +20,7 @@ deal_jsons = {deal.name: json.dumps(deal.__dict__) for deal in deals}
 
 @app.route('/')
 def show_deals():
-    return render_template('index.html', deals=deals)
+    return render_template('index.html')
 
 @app.route('/_deal_data')
 def _deal_data():

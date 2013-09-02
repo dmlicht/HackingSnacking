@@ -30,6 +30,7 @@
      */
     Trie.prototype.startsWith = function(prefix) {
         var currentNode = this.find(prefix)
+        //find is returning null
         if (currentNode === null){ return []; }
         return this.findStoredBelow(currentNode);
     }
