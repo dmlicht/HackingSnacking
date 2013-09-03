@@ -3,6 +3,5 @@ venv
 *.swp
 .idea
 .DS_Store
-all_deals
 keys.py
-mag.svg
+groupon_deal_attributes.txt
