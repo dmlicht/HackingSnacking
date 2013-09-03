@@ -9,7 +9,7 @@ DEFAULT_FIELDS = {
     'facets': 'category%7Ccategory2',
     'relevance_context': 'web_local',
     'show_facets': 'Local',
-    'filters': 'category%3Arestaurants-and-bars',
+    'filters': 'category%3Afood-and-drink',
     'lat': '40.7143528',
     'lng': '-74.0059731',
     'locale': 'en',
