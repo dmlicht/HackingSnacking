@@ -16,7 +16,6 @@ def get_rating(name):
     #parse output. first 3 lines equate to request data and empty line. 4th line is result json
     if len(results) < 10:
         return None
-        continue
     url_line, signed_url, _, json_data = str.split(results, '\n', 3)
 
     json_obj = json.loads(json_data)
