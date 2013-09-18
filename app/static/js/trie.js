@@ -1,5 +1,8 @@
 ;(function(exports){
-    var Trie = function(){
+    var Trie = function(arg){
+        if (arg == 'i'){
+            this.case_insensitive = true;
+        }
         this.root = new Node(null);
     };
 
@@ -12,6 +15,9 @@
      * stores val in node where characters of key end
      */
     Trie.prototype.add = function (key, val){
+        if (this.case_insensitive = true){
+            key = key.toLowerCase();
+        }
         currentNode = this.root;
         for (var i = 0; i < key.length; i++){
             if (currentNode.children.hasOwnProperty(key[i])){
@@ -29,6 +35,9 @@
      * returns all strings prefixed by passed string
      */
     Trie.prototype.startsWith = function(prefix) {
+        if (this.case_insensitive){
+            prefix = prefix.toLowerCase();
+        }
         var currentNode = this.find(prefix)
         //find is returning null
         if (currentNode === null){ return []; }
