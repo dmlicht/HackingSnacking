@@ -142,6 +142,7 @@ function add_deal(name, score, nreviews, categories, grouponUrl, yelpUrl){
   div.appendChild(pscore);
 
   var cats = document.createElement('ul');
+  cats.className += "tags";
   for (var i = 0; i < categories.length; i++){
     var el = document.createElement('li');
     el.innerText = categories[i];
