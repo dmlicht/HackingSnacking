@@ -34,7 +34,7 @@ class Groupon(object):
         field_string = '&'.join([k + '=' + v for (k,v) in self._fields.items()])
         return '%s?%s' % (self._base_url, field_string)
 
-    def fetch(self):
+    def get_deals(self):
         """queries groupon api and returns json object with results"""
         request_string = self.generate_query_url()
         connection = httplib.HTTPConnection('api.groupon.com', 80)
