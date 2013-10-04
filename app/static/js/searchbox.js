@@ -116,6 +116,7 @@ var populateDealsList = function(deals) {
     }
 }
 
+/* constructs a deal element */
 function add_deal(name, score, nreviews, categories, grouponUrl, yelpUrl){
   var article = document.createElement('article');
   article.className += "deal";
@@ -143,7 +144,7 @@ function add_deal(name, score, nreviews, categories, grouponUrl, yelpUrl){
 
   var cats = document.createElement('ul');
   cats.className += "tags";
-  for (var i = 0; i < categories.length; i++){
+  for (var i = 0; i < categories.length && i < 3; i++){
     var el = document.createElement('li');
     el.innerText = categories[i];
     cats.appendChild(el)
