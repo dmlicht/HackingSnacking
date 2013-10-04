@@ -5,8 +5,21 @@ window.onload = function(){
     var serverResponse = xhReq.responseText;
     var deals = getDealList(serverResponse);
     trie = buildTrie(deals);
+    var tagsDict = createTagToDealListDictionary(deals);
+//    var keys = getKeys(tagsDict);
+//    addKeyDescription(keys);
     populateDealsList(deals);
 };
+
+function getKeys(object){
+    var keys = [];
+    for (var key in object) {
+        if (object.hasOwnProperty(key)) {
+            keys.push(key);
+        }
+    }
+    return keys;
+}
 
 /**
  * takes raw string input containing json of a list of deals
@@ -27,7 +40,7 @@ function getDealList(dealsString){
  */
 function buildTrie(deals){
     var trie = new this.Trie('i'); //i for case insensitive. Borrowed from regex flag
-    tagsDict = createTagToDealListDictionary(deals)
+    tagsDict = createTagToDealListDictionary(deals);
     for (var ii in deals){
         trie.add(deals[ii]['name'], [deals[ii]]);
     }
@@ -38,7 +51,7 @@ function buildTrie(deals){
 }
 
 /**
- * takes a list of deals and returns a dictionionary
+ * takes a list of deals and returns a dictionary
  * mapping each element of the set of tags associated with deals
  * to the list of all deals matching the tag
  */
@@ -154,4 +167,13 @@ function add_deal(name, score, nreviews, categories, grouponUrl, yelpUrl){
   var deals = document.getElementById('deals');
   deals.appendChild(article);
   return article;
+}
+
+function addKeyDescription(keys){
+    var p = document.createElement('p');
+    for (var i = 0; i < keys.length; i++){
+        p.text += keys[i];
+    }
+    var deals = document.getElementsByClassName('content-container cf')[0];
+    deals.appendChild(p);
 }
